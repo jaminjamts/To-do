@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do Project</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      src="https://kit.fontawesome.com/765b2b84a9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-section">
+        <!--  -->
+        <div class="button-section">
+          <button id="addTaskBtn">Add Task</button>
+        </div>
+        <!--  -->
+        <div class="content-section">
+          <div id="todo" class="card">
+            <div class="header">
+              <div class="flex">
+                <i class="fa-solid fa-circle white"></i>
+                <h1>Todo</h1>
+              </div>
+              <div id="todoTitle"></div>
+            </div>
+            <div class="tasksTodo class-task" id="tasksTodo"></div>
+          </div>
+          <div id="inProcess" class="card">
+            <div class="header">
+              <div class="flex">
+                <i class="fa-solid fa-circle yellow"></i>
+                <h1>In Process</h1>
+              </div>
+              <div id="in-Process-Title"></div>
+            </div>
+            <div class="tasksInProcess class-task"></div>
+          </div>
+          <div id="done" class="card">
+            <div class="header">
+              <div class="flex">
+                <i class="fa-solid fa-circle green"></i>
+                <h1>Done</h1>
+              </div>
+              <div id="doneTitle"></div>
+            </div>
+            <div class="tasksDone class-task"></div>
+          </div>
+          <div id="blocked" class="card">
+            <div class="header">
+              <div class="flex">
+                <i class="fa-solid fa-circle red"></i>
+                <h1>Blocked</h1>
+              </div>
+              <div id="blockedTitle"></div>
+            </div>
+            <div class="tasksBlocked class-task" id="tasksBlocked"></div>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+    </div>
+    <div class="dialog-container">
+      <div class="dailog">
+        <div class="dialog-input-section">
+          <h1 class="task1">Enter task</h1>
+          <input id="userInput" type="text" placeholder="Enter task..." />
+          <select id="status">
+            <option value="selected" selected disabled hidden>
+              Select status
+            </option>
+            <option value="todo">To do</option>
+            <option value="inProcess">In Process</option>
+            <option value="done">Done</option>
+            <option value="blocked">Blocked</option>
+          </select>
+        </div>
+        <button id="submitBtn">Submit</button>
+      </div>
+    </div>
+
+    <!-- js -->
+    <script src="./index.js"></script>
+  </body>
+</html>

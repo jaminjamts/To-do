@@ -1,0 +1,548 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --black: #101010;
+  --bg-black: #1a1a1a;
+  --title-white: #ffffff;
+  --text-white: #d9d9d9;
+  --bg-gray: #999999;
+  --border-gray: #333333;
+  --green: #00a300;
+  --red: #a30000;
+  --yellow: #a3a300;
+}
+
+@media screen and (max-width: 600px) {
+  /* Styles for small mobile devices */
+
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-black);
+  }
+
+  .main-section {
+    width: 90%;
+    height: 100%;
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: end;
+  }
+
+  button {
+    background-color: var(--green);
+    color: var(--title-white);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 2% 0;
+  }
+
+  .content-section {
+    display: grid;
+    grid-template-columns: repeat(2, 49% 49%);
+    grid-template-rows: repeat(2, 40vh 40vh);
+    gap: 2%;
+  }
+
+  #todo {
+    grid-area: 1/1;
+  }
+
+  #inProcess {
+    grid-area: 1/2;
+  }
+
+  #done {
+    grid-area: 2/1;
+  }
+
+  #blocked {
+    grid-area: 2/2;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 2rem;
+      color: var(--title-white);
+    }
+    .taskText {
+      font-size: 1.8rem;
+      color: var(--title-white);
+    }
+    i {
+      display: none;
+    }
+  }
+  .card {
+    border: 1px solid;
+    border-color: var(--border-grey);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    color: var(--text-white);
+    background-color: var(--black);
+  }
+
+  .task {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    gap: 20px;
+    border-radius: 5px;
+    background-color: var(--bg-black);
+    overflow-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+  }
+  .class-task {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .dialog-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(10, 10, 10, 0.8);
+  }
+
+  .dailog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    height: 40%;
+    width: 80%;
+    background-color: var(--border-gray);
+    border-radius: 5px;
+  }
+  .dialog-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h1 {
+      color: var(--title-white);
+    }
+    input,
+    select {
+      color: var(--text-white);
+      background-color: var(--border-gray);
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+}
+
+@media (min-width: 601px) and (max-width: 899px) {
+  /* Styles for large mobile devices */
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-black);
+  }
+
+  .main-section {
+    width: 90%;
+    height: 100%;
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+  }
+
+  button {
+    background-color: var(--green);
+    color: var(--title-white);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .content-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 40vh);
+    gap: 5%;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 2rem;
+      color: var(--title-white);
+    }
+    h1 {
+      font-size: 2rem;
+      color: var(--title-white);
+    }
+    i {
+      padding: 8px;
+    }
+  }
+  .card {
+    border: 1px solid;
+    border-color: var(--border-grey);
+    border-radius: 15px;
+    padding: 10px;
+    color: var(--text-white);
+    background-color: var(--black);
+  }
+
+  .task {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--bg-black);
+    overflow-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    span {
+      font-size: 15px;
+    }
+    i {
+      margin: 5px;
+    }
+  }
+  .class-task {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .dialog-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(10, 10, 10, 0.8);
+  }
+
+  .dailog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    height: 40%;
+    width: 50%;
+    background-color: var(--border-gray);
+    border-radius: 20px;
+  }
+  .dialog-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h1 {
+      color: var(--title-white);
+    }
+    input,
+    select {
+      color: var(--text-white);
+      background-color: var(--border-gray);
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+}
+
+/* Styles for large mobile devices */
+@media (min-width: 900px) and (max-width: 1299px) {
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-black);
+  }
+
+  .main-section {
+    width: 90%;
+    height: 90%;
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: end;
+    margin: 10px 0;
+  }
+
+  button {
+    background-color: var(--green);
+    color: var(--title-white);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .content-section {
+    display: grid;
+    grid-template-columns: repeat(3, 33% 33% 32%);
+    grid-template-rows: repeat(2, 40vh 40vh);
+    gap: 2%;
+  }
+
+  #todo {
+    grid-area: 1/1/3/2;
+  }
+
+  #inProcess {
+    grid-area: 1/2/3/3;
+  }
+
+  #done {
+    grid-area: 1/3;
+  }
+
+  #blocked {
+    grid-area: 2/3;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    h1 {
+      font-size: 1.8rem;
+      color: var(--title-white);
+    }
+    i {
+      padding: 8px;
+    }
+  }
+  .card {
+    border: 1px solid;
+    border-color: var(--border-grey);
+    border-radius: 15px;
+    padding: 10px;
+    color: var(--text-white);
+    background-color: var(--black);
+  }
+
+  .task {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    gap: 20px;
+    border-radius: 5px;
+    background-color: var(--bg-black);
+    overflow-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+  }
+  .class-task {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .dialog-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(10, 10, 10, 0.8);
+  }
+
+  .dailog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    height: 40%;
+    width: 40%;
+    background-color: var(--border-gray);
+    border-radius: 25px;
+  }
+  .dialog-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h1 {
+      color: var(--title-white);
+    }
+    input,
+    select {
+      color: var(--text-white);
+      background-color: var(--border-gray);
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+}
+/* Styles for large mobile devices */
+@media (min-width: 1300px) {
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-black);
+  }
+
+  .main-section {
+    width: 80%;
+    height: 100%;
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+  }
+
+  button {
+    background-color: var(--green);
+    color: var(--title-white);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .content-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 2rem;
+      color: var(--title-white);
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: var(--title-white);
+    }
+    i {
+      padding: 8px;
+    }
+  }
+  .card {
+    border: 1px solid;
+    border-color: var(--border-grey);
+    border-radius: 25px;
+    padding: 20px;
+    color: var(--text-white);
+    background-color: var(--black);
+    height: 85vh;
+    width: 20vw;
+  }
+
+  .task {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 20px;
+    border-radius: 5px;
+    background-color: var(--bg-black);
+    overflow-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    span {
+      font-size: 1.2rem;
+    }
+  }
+  .class-task {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .dialog-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(10, 10, 10, 0.8);
+  }
+
+  .dailog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    height: 40%;
+    width: 20%;
+    background-color: var(--border-gray);
+    border-radius: 15px;
+  }
+  .dialog-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h1 {
+      color: var(--title-white);
+    }
+    input,
+    select {
+      color: var(--text-white);
+      background-color: var(--border-gray);
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+}
+.white {
+  color: var(--title-white);
+}
+.yellow {
+  color: var(--yellow);
+}
+.green {
+  color: var(--green);
+}
+.red {
+  color: var(--red);
+}
