@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do Project</title>
+    <title>Task Management Board</title>
     <link rel="stylesheet" href="style.css" />
-
     <script
       src="https://kit.fontawesome.com/765b2b84a9.js"
       crossorigin="anonymous"
@@ -14,13 +13,12 @@
   <body>
     <div class="container">
       <div class="main-section">
-        <!--  -->
         <div class="button-section">
           <button id="addTaskBtn">Add Task</button>
         </div>
-        <!--  -->
+
         <div class="content-section">
-          <div id="todo" class="card">
+          <div id="todo" class="card" data-status="todo">
             <div class="header">
               <div class="flex">
                 <i class="fa-solid fa-circle white"></i>
@@ -28,9 +26,14 @@
               </div>
               <div id="todoTitle"></div>
             </div>
-            <div class="tasksTodo class-task" id="tasksTodo"></div>
+            <div
+              class="tasksTodo class-task"
+              id="tasksTodo"
+              data-status="todo"
+            ></div>
           </div>
-          <div id="inProcess" class="card">
+
+          <div id="inProcess" class="card" data-status="inProcess">
             <div class="header">
               <div class="flex">
                 <i class="fa-solid fa-circle yellow"></i>
@@ -38,9 +41,13 @@
               </div>
               <div id="in-Process-Title"></div>
             </div>
-            <div class="tasksInProcess class-task"></div>
+            <div
+              class="tasksInProcess class-task"
+              data-status="inProcess"
+            ></div>
           </div>
-          <div id="done" class="card">
+
+          <div id="done" class="card" data-status="done">
             <div class="header">
               <div class="flex">
                 <i class="fa-solid fa-circle green"></i>
@@ -48,9 +55,10 @@
               </div>
               <div id="doneTitle"></div>
             </div>
-            <div class="tasksDone class-task"></div>
+            <div class="tasksDone class-task" data-status="done"></div>
           </div>
-          <div id="blocked" class="card">
+
+          <div id="blocked" class="card" data-status="blocked">
             <div class="header">
               <div class="flex">
                 <i class="fa-solid fa-circle red"></i>
@@ -58,12 +66,16 @@
               </div>
               <div id="blockedTitle"></div>
             </div>
-            <div class="tasksBlocked class-task" id="tasksBlocked"></div>
+            <div
+              class="tasksBlocked class-task"
+              id="tasksBlocked"
+              data-status="blocked"
+            ></div>
           </div>
         </div>
-        <!--  -->
       </div>
     </div>
+
     <div class="dialog-container">
       <div class="dailog">
         <div class="dialog-input-section">
@@ -83,7 +95,6 @@
       </div>
     </div>
 
-    <!-- js -->
     <script src="./index.js"></script>
   </body>
 </html>
